@@ -8,14 +8,16 @@
 import pandas as pd
 import xgboost as xgb
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import *
 # ---------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------
 # Load the data
 # ---------------------------------------------------------------------------------
-data = pd.read_csv('air_pollution_data.csv')  # Assuming your data is in a CSV file
+data = pd.read_csv('air_pollution_data.csv')
 # ---------------------------------------------------------------------------------
+
+# def gradient_boost_reg():
 
 # ---------------------------------------------------------------------------------
 # Split the data into input features (X) and target variable (y)
@@ -51,6 +53,9 @@ y_pred = gb_model.predict(X_test)
 # ---------------------------------------------------------------------------------
 # Evaluate the model
 # ---------------------------------------------------------------------------------
-mse = mean_squared_error(y_test, y_pred)
-print("Mean Squared Error:", mse)
+crit_mse = mean_squared_error(y_test, y_pred)
+crit_r2 = r2_score(y_test, y_pred)
+print("Mean Squared Error:", crit_mse)
+print("R2:", crit_r2)
+
 # ---------------------------------------------------------------------------------

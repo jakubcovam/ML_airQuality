@@ -8,7 +8,7 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import *
 # ---------------------------------------------------------------------------------
 
 # ---------------------------------------------------------------------------------
@@ -46,6 +46,8 @@ y_pred = rf_model.predict(X_test)
 # ---------------------------------------------------------------------------------
 # Evaluate the model
 # ---------------------------------------------------------------------------------
-mse = mean_squared_error(y_test, y_pred)
-print("Mean Squared Error:", mse)
+crit_mse = mean_squared_error(y_test, y_pred)
+crit_r2 = r2_score(y_test, y_pred)
+print("Mean Squared Error:", crit_mse)
+print("R2:", crit_r2)
 # ---------------------------------------------------------------------------------
